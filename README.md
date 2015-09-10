@@ -1,4 +1,11 @@
 # nativescript-vm
+
+A NativeScript VM
+
+## License
+
+This is released under the MIT License, meaning you are free to use this however you want. -- However for entities that need a support and/or a commercial license please contact me (nathan@master-technology.com).
+
 ##NativeScript Virtual Machine  
 
 The initialize.sh Script can be ran on a fresh Ubuntu 64bit 14.04 Installation.  (I've tested it in both VMWare and VirtualBox)   

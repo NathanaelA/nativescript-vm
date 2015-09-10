@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ANDROID_SDK_FILENAME=android-sdk_r24.2-linux.tgz
+ANDROID_SDK_FILENAME=android-sdk_r24.3.4-linux.tgz
 ANDROID_NDK_FILENAME=android-ndk-r10e
 
 install_pkgs() {
@@ -73,7 +73,7 @@ create_exports() {
 install_android_tools() {
   echo Installing Android Components This can take a while...
   # Yes, I fully realize I'm pulling android-17, 21 & 22.  17 & 21 are required for different parts of NativeScript; 22 is the latest
-  ( sleep 7 && while [ 1 ]; do sleep 2; echo y; done ) | android update sdk --no-ui --filter platform-tool,android-17,android-21,android-22,build-tools-22.0.1
+  ( sleep 7 && while [ 1 ]; do sleep 2; echo y; done ) | android update sdk --no-ui --filter platform-tool,android-17,android-21,android-22,build-tools-23.0.1
 }
 
 install_android_ndk() {
