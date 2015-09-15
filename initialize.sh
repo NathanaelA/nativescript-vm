@@ -1,9 +1,15 @@
 #!/bin/bash
 
+2015-09-14 20:17:11
+
 ANDROID_SDK_FILENAME=android-sdk_r24.3.4-linux.tgz
 ANDROID_NDK_FILENAME=android-ndk-r10e
 
 install_pkgs() {
+  # Use Gradle ppa to get latest gradle
+  echo 'deb http://ppa.launchpad.net/cwchien/gradle/ubuntu trusty main' | sudo tee /etc/apt/sources.list.d/gradle.list
+  echo 'deb-src http://ppa.launchpad.net/cwchien/gradle/ubuntu trusty main' | sudo tee --append /etc/apt/sources.list.d/gradle.list
+
   # Update & Add i386 Components that are needed
   sudo dpkg --add-architecture i386
   sudo apt-get update
@@ -11,12 +17,13 @@ install_pkgs() {
   sudo apt-get install -y libncurses5:i386 libstdc++6:i386 zlib1g:i386 lib32z1 lib32ncurses5 lib32bz2-1.0 libstdc++6:i386
 
   # Pull in all the Development stuff
-  sudo apt-get install -y mc linux-headers-generic build-essential g++ ant git openjdk-7-jdk p7zip p7zip-full
+  sudo apt-get install -y mc linux-headers-generic build-essential g++ ant git openjdk-7-jdk p7zip p7zip-full gradle
 }
+
 
 install_node() {
   echo Downloading Latest version of Node
-  sudo wget -q --output-document=/usr/src/node-latest.tar.gz http://nodejs.org/dist/node-latest.tar.gz
+  sudo wget -q --output-document=/usr/src/node-latest.tar.gz http://nodejs.org/dist/latest-v0.12.x/node-v0.12.7.tar.gz
   pushd /usr/src
   echo Extracting Node...
   sudo tar zxvf node-latest.tar.gz > /dev/null
@@ -73,7 +80,7 @@ create_exports() {
 install_android_tools() {
   echo Installing Android Components This can take a while...
   # Yes, I fully realize I'm pulling android-17, 21 & 22.  17 & 21 are required for different parts of NativeScript; 22 is the latest
-  ( sleep 7 && while [ 1 ]; do sleep 2; echo y; done ) | android update sdk --no-ui --filter platform-tool,android-17,android-21,android-22,build-tools-23.0.1
+  ( sleep 7 && while [ 1 ]; do sleep 2; echo y; done ) | android update sdk --no-ui --filter platform-tool,android-17,android-21,android-22,build-tools-22.0.1
 }
 
 install_android_ndk() {
