@@ -2,6 +2,10 @@
 
 A NativeScript VM
 
+## Discontinued
+NativeScript is considerably easier to install on all OS's now; so this should not need to be used for anything...
+
+
 ## License
 
 This is released under the MIT License, meaning you are free to use this however you want. -- However for entities that need a support and/or a commercial license please contact me (nathan@master-technology.com).
